@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const { DEC8_BIN } = require('mysql2/lib/constants/charsets');
 const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // The `/api/products` endpoint
@@ -7,6 +8,15 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
+  Product.findAll({
+    include: [
+      Category, {
+        model: Tag,
+        through: ProductTag
+      }
+    ]
+  })
+  .then(db)
 });
 
 // get one product
