@@ -86,7 +86,11 @@ router.put('/:id', (req, res) => {
   })
     .then((product) => {
       // find all associated tags from ProductTag
-      return ProductTag.findAll({ where: { product_id: req.params.id } });
+      return ProductTag.findAll(
+        { 
+          where: { product_id: req.params.id } 
+        }
+      );
     })
     .then((productTags) => {
       // get list of current tag_ids
@@ -103,8 +107,13 @@ router.put('/:id', (req, res) => {
       // figure out which ones to remove
       const productTagsToRemove = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
-        .map(({ id }) => id);
-
+        .map(({ tag_id }) => {
+          return {
+            product_id: req.params.id,
+            tag_id,
+          };
+        });
+      
       // run both actions
       return Promise.all([
         ProductTag.destroy({ where: { id: productTagsToRemove } }),
@@ -125,7 +134,17 @@ router.delete('/:id', (req, res) => {
       id: req.params.id
     }
   })
-  .then(dbProd)
+  .then(dbProductData => {
+    if (!dbProductData) {
+      res.status(404).json({ message: 'Product not found'});
+      return;
+    }
+    res.json(dbProductData);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 module.exports = router;
