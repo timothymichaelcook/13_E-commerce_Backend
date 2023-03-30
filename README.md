@@ -1,6 +1,5 @@
-# Code Quiz 
+# E-commerce backend
 
-Project Page: [Project Page](https://timothymichaelcook.github.io/4-code-quiz-cook)
 Project Repo: [Github-repo](https://github.com/timothymichaelcook/4-code-quiz-cook)
 
 
