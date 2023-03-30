@@ -1,27 +1,31 @@
 # E-commerce backend
 
-Project Repo: [Github-repo](https://github.com/timothymichaelcook/4-code-quiz-cook)
+Project Repo: [Github-repo](https://github.com/timothymichaelcook/13_E-commerce_Backend)
 
+## Description REDO
 
-## Description
-
-The focus of this project was to create an application that displayed a timed quiz, with multiple choice and T/F questions are displayed as either correct or incorrect as soon as the click event occurred on the button. The quiz will generate as many questions as possible within the time frame as repetition is important when learning. Users can save their information in a high scores table that will populate every time a score is saved. This table also has the ability to be cleared.
+The focus of this project was to create an application that is a back end for an e-commerce site. The backend consisted of routes for different end points for the e-commerce site. These endpoint include category, product, tag, and product tag with an id for each endpoint entry. 
 
 ## User Story
 
 ```
-- AS A teacher
-- I WANT to have quiz on computer programming fundamentals
-- SO THAT my students are knowledgeable about computer programming
+- AS A manager at an internet retail company
+- I WANT a back end for my e-commerce website that uses the latest technologies
+- SO THAT my company can compete with other e-commerce companies
 ```
 
 ## Installation
 
-N/A
+Create .env file
+npm i
+dotenv
+express
+mysql2
+sequelize
 
-## Usage
+## Usage REDO
 
-Users click the "Start Quiz" button which will redirect to a new page with a running timer and a container for displayed questions. Users click their answer or best guess which is then returned with a result. Users finally have the ability to save their scores at the end of every quiz as well as clearing all results as well.
+Users need to set up a .env file with correct credentials for accessing their mysql database. Run npm i to install the needed packages for this project. These packages include dotenv, express, mysql2, and sequelize. Run the database with mysql -u root -p, enter mysql password, and source the database by running source schema.sql (make sure you are in the correct directory). Navigate to the root directory of the project and run the server using node server.js. Open Insomnia and seed the database with correct field information and see the CRUD operations create, read, update, and delete data rows.
 
 
 ## Credits
@@ -34,11 +38,7 @@ MIT License
 
 ## Screenshots
 
-![Project Screenshot](./screenshots/screenshot_1.png)
-![Project Screenshot](./screenshots/screenshot_2.png)
-![Project Screenshot](./screenshots/screenshot_3.png)
-![Project Screenshot](./screenshots/screenshot_4.png)
-
+![Project Video](./assets/screenshot_1.png)
 
 ## Contact
 Timothy Cook - timothy.michael.cook@gmail.com
